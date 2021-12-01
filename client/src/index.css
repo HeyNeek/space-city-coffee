@@ -83,6 +83,45 @@ body {
   height: 100px;
 }
 
+#loginContainer {
+  background-color: #212529;
+  border-radius: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  width: 400px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+#signUpContainer {
+  background-color: #212529;
+  border-radius: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  width: 400px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.submitButtonContainer {
+  text-align: center;
+}
+
+.loginLabels {
+  color: #FFFFFF;
+  font-weight: 400;
+}
+
+.loginAndLogout:hover {
+  background-color: tomato;
+}
+
+#signUpLink {
+  justify-content: center;
+}
+
 
 
 
