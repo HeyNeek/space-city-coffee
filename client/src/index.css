@@ -122,6 +122,27 @@ body {
   justify-content: center;
 }
 
+#shopsContainer {
+  background-color: #f9e4b7;
+  border-radius: 25px;
+}
+
+#shopsH1 {
+  text-align: center;
+  font-family: 'Felician';
+  font-size: 150px;
+}
+
+.shopCards {
+  cursor: pointer;
+}
+
+.shopCards:active {
+  border-color: green;
+}
+
+
+
 
 
 
