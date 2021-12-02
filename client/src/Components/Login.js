@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {NavLink, Routes, Route} from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -11,6 +11,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 function Login({setUser}){
     const [username, setUsername] = useState(null);
     const [password, setPassword] = useState(null);
+    const history = useNavigate("");
     const [errors, setErrors] = useState([]);
 
     function handleSubmit(e){
@@ -21,12 +22,13 @@ function Login({setUser}){
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ username, 
-            password}),
+          body: JSON.stringify({ name:username, 
+            password:password}),
         }).then((r) => {
           if (r.ok) {
             r.json().then((user) => {
               setUser(user)
+              history("/")
             });
           } else {
             r.json().then((err) => {setErrors(err.error)
@@ -44,8 +46,8 @@ function Login({setUser}){
                 {errors}
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label className="loginLabels">Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                        <Form.Label className="loginLabels">Username</Form.Label>
+                        <Form.Control type="email" placeholder="Enter username" value={username} onChange={(e) => setUsername(e.target.value)}/>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">

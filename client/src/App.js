@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Link, NavLink, Routes, Route } from 'react-router-dom';
 
 import Home from './Components/Home';
@@ -18,6 +18,28 @@ function App() {
 
   const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    refresh()
+  }, []);
+
+  function refresh(){
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => {console.log(user)
+          setUser(user)
+        }); 
+      }
+    })
+  }
+
+  function logoutHandler() {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null);
+      }
+    });
+  }
+
   return (
     <Router>
     <div className="App">
@@ -32,7 +54,7 @@ function App() {
               <Nav.Link as={NavLink} to="/favorites">Favorites</Nav.Link>
             </Nav>
             <Nav className="me-auto">
-              {user ? <Button>Logout</Button> : <Nav.Link id="loginNav" as={NavLink} to="/login">Login</Nav.Link>}
+              {user ? <Button onClick={logoutHandler}>Logout {user.name}</Button> : <Nav.Link id="loginNav" as={NavLink} to="/login">Login</Nav.Link>}
             </Nav>
           </Navbar.Collapse>
         </Container>
