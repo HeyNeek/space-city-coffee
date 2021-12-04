@@ -3,20 +3,9 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
+import { useEffect, useState } from 'react';
 
-function ShopCard({user, shop_id, name, phone_number, address}){
-
-    function favoriteHandler(){
-        console.log(shop_id);
-        console.log(user.id);
-
-        fetch("/favorite_shops", {
-            method: "POST",
-            headers: {"Content-Type": "application/json",},
-            body: JSON.stringify({ user_id:user.id, 
-              shop_id:shop_id}),
-        })
-    }
+function FavoriteShopCard({name, phone_number, address}){
 
     return (
         <>
@@ -28,7 +17,7 @@ function ShopCard({user, shop_id, name, phone_number, address}){
                         <br/>
                         {address}
                     </Card.Text>
-                    {user ? <Button onClick={favoriteHandler}>Favorite</Button>: null}
+                    <Button>Remove from favorites</Button>
                 </Card.Body>
             </Card>
         <br/>
@@ -36,4 +25,4 @@ function ShopCard({user, shop_id, name, phone_number, address}){
     )
 }
 
-export default ShopCard;
+export default FavoriteShopCard;

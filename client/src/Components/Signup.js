@@ -31,6 +31,7 @@ function Signup({setUser}){
               r.json().then((user) => {
                 setUser(user)
                 history("/")
+                window.location.reload(false);
               });
             } else {
               r.json().then((err) => setErrors(err.errors));
