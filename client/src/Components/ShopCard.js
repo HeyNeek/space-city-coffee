@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 
-function ShopCard({name, phone_number, address}){
+function ShopCard({user, name, phone_number, address}){
     return (
         <>
             <Card className="shopCards" bg="dark" text="white">
@@ -15,7 +15,7 @@ function ShopCard({name, phone_number, address}){
                         <br/>
                         {address}
                     </Card.Text>
-                    <Button>Favorite</Button>
+                    {user ? <Button>Favorite</Button>: null}
                 </Card.Body>
             </Card>
         <br/>

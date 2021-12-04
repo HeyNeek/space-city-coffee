@@ -141,6 +141,24 @@ body {
   border-color: green;
 }
 
+#favoritesH1 {
+  text-align: center;
+  font-family: 'Felician';
+  font-size: 150px;
+}
+
+#favoritesContainer {
+  background-color: #f9e4b7;
+  border-radius: 25px;
+}
+
+#favoritesExceptionH1 {
+  text-align: center;
+  font-family: 'Felician';
+  font-size: 75px;
+  color: #FFFFFF;
+}
+
 
 
 

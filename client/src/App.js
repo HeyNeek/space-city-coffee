@@ -62,8 +62,8 @@ function App() {
       <br/>
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/shops" element={<Shops/>} />
-        <Route path="/favorites" element={<Favorites/>} />
+        <Route path="/shops" element={<Shops user={user} />} />
+        <Route path="/favorites" element={<Favorites user={user}/>} />
         <Route path="/login" element={<Login setUser={setUser}/>} />
         <Route path="/signup" element={<Signup setUser={setUser}/>} />
       </Routes>
