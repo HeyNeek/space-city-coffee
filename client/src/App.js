@@ -50,7 +50,7 @@ function App() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={NavLink} to="/" exact>Home</Nav.Link>
-              <Nav.Link as={NavLink} to="/shops">Shops</Nav.Link>
+              <Nav.Link as={NavLink} to="/explore">Shops</Nav.Link>
               <Nav.Link as={NavLink} to="/favorites">Favorites</Nav.Link>
             </Nav>
             <Nav className="me-auto">
@@ -62,7 +62,7 @@ function App() {
       <br/>
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/shops" element={<Shops user={user} />} />
+        <Route path="/explore" element={<Shops user={user} />} />
         <Route path="/favorites" element={<Favorites user={user}/>} />
         <Route path="/login" element={<Login setUser={setUser}/>} />
         <Route path="/signup" element={<Signup setUser={setUser}/>} />

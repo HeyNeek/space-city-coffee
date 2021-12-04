@@ -22,7 +22,7 @@ function Shops({user}){
         });
       }, []);
 
-      const displayShops = shops.map(shop => <ShopCard user={user} name={shop.name} phone_number={shop.phone_number} address={shop.address} />)
+      const displayShops = shops.map(shop => <ShopCard shop_id={shop.id} user={user} name={shop.name} phone_number={shop.phone_number} address={shop.address} />)
 
     return (
         <div>

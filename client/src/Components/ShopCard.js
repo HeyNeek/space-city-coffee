@@ -4,7 +4,13 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 
-function ShopCard({user, name, phone_number, address}){
+function ShopCard({user, shop_id, name, phone_number, address}){
+
+    function favoriteHandler(){
+        console.log(shop_id);
+        console.log(user.id);
+    }
+
     return (
         <>
             <Card className="shopCards" bg="dark" text="white">
@@ -15,7 +21,7 @@ function ShopCard({user, name, phone_number, address}){
                         <br/>
                         {address}
                     </Card.Text>
-                    {user ? <Button>Favorite</Button>: null}
+                    {user ? <Button onClick={favoriteHandler}>Favorite</Button>: null}
                 </Card.Body>
             </Card>
         <br/>
