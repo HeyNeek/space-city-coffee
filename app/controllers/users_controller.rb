@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     end
   
     def show
-      render json: @current_user, serializer: UserDetailSerializer
+      render json: @current_user
     end
   
     private

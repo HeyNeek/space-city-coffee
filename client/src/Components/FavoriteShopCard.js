@@ -3,9 +3,23 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
-import { useEffect, useState } from 'react';
 
-function FavoriteShopCard({name, phone_number, address}){
+function FavoriteShopCard({id, name, phone_number, address}){
+
+    function deleteFavorite(){
+        fetch(`/favorite_shops/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((resp) => resp.json())
+          .then(() => {
+            window.location.reload(false);
+          });
+
+          window.location.reload(false);
+    }
 
     return (
         <>
@@ -17,7 +31,7 @@ function FavoriteShopCard({name, phone_number, address}){
                         <br/>
                         {address}
                     </Card.Text>
-                    <Button>Remove from favorites</Button>
+                    <Button variant="danger" onClick={deleteFavorite} >Remove from favorites</Button>
                 </Card.Body>
             </Card>
         <br/>
