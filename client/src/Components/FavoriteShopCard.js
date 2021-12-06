@@ -13,12 +13,7 @@ function FavoriteShopCard({id, name, phone_number, address}){
             "Content-Type": "application/json",
           },
         })
-          .then((resp) => resp.json())
-          .then(() => {
-            window.location.reload(false);
-          });
-
-          window.location.reload(false);
+        window.location.reload(false);
     }
 
     return (

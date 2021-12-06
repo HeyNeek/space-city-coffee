@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 function Shops({user}){
 
     const [shops, setShops] = useState([]);
+    const [mapState, setMapState] = useState("https://maps.google.com/maps?q=Houston,%20TX&t=&z=11&ie=UTF8&iwloc=&output=embed");
 
     useEffect(() => {
         fetch("/shops").then((r) => {
@@ -22,18 +23,25 @@ function Shops({user}){
         });
       }, []);
 
-      const displayShops = shops.map(shop => <ShopCard shop_id={shop.id} user={user} name={shop.name} phone_number={shop.phone_number} address={shop.address} />)
+      const displayShops = shops.map(shop => <ShopCard setMapState={setMapState} shop_id={shop.id} location_link={shop.location_link} user={user} name={shop.name} phone_number={shop.phone_number} address={shop.address} />)
 
     return (
         <div>
             <Container id="shopsContainer">
                 <h1 id="shopsH1">Explore Local Coffee Shops</h1>
                 <Row>
+                <div id="googleMap" class="mapouter">
+                    <div class="gmap_canvas">
+                        <iframe  id="gmap_canvas" src={mapState} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                        <br/>
+                        {/* <style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style> */}
+                        {/* <style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style> */}
+                    </div>
+                </div>
+                </Row>
+                <Row>
                     <Col>
                         {displayShops}
-                    </Col>
-                    <Col>
-                        <h1>Map should be here</h1>
                     </Col>
                 </Row>
             </Container>

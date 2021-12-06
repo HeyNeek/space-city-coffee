@@ -159,6 +159,16 @@ body {
   color: #FFFFFF;
 }
 
+#googleMap {
+  justify-content: center;
+  align-items: center;
+}
+
+#gmap_canvas {
+  width: 100%;
+  height: 400px;
+}
+
 
 
 

@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 
-function ShopCard({user, shop_id, name, phone_number, address}){
+function ShopCard({user, setMapState, location_link, shop_id, name, phone_number, address}){
 
     function favoriteHandler(){
         console.log(shop_id);
@@ -18,9 +18,13 @@ function ShopCard({user, shop_id, name, phone_number, address}){
         })
     }
 
+    function changeLocation(){
+        setMapState(location_link);
+    }
+
     return (
         <>
-            <Card className="shopCards" bg="dark" text="white">
+            <Card onClick={changeLocation} className="shopCards" bg="dark" text="white">
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>
