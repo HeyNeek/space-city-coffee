@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { BrowserRouter as Router, Link, NavLink, Routes, Route } from 'react-router-dom';
+import { Link, NavLink, Routes, Route, useNavigate} from 'react-router-dom';
 
 import Home from './Components/Home';
 import Shops from './Components/Shops';
@@ -17,6 +17,7 @@ import logo from './logo-removebg-preview.png';
 function App() {
 
   const [user, setUser] = useState(null);
+  const history = useNavigate("");
 
   useEffect(() => {
     refresh()
@@ -35,6 +36,7 @@ function App() {
   function logoutHandler() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
+        history("/");
         setUser(null);
         window.location.reload(false);
       }
@@ -42,7 +44,6 @@ function App() {
   }
 
   return (
-    <Router>
     <div className="App">
       <Navbar bg="dark" expand="lg" variant="dark">
         <Container>
@@ -69,7 +70,6 @@ function App() {
         <Route path="/signup" element={<Signup setUser={setUser}/>} />
       </Routes>
     </div>
-    </Router>
   );
 }
 
