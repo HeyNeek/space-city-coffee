@@ -40,7 +40,7 @@ function Shops({user}){
                 </div>
                 </Row>
                 <Row>
-                    <Col>
+                    <Col id="shopsColumn">
                         {displayShops}
                     </Col>
                 </Row>

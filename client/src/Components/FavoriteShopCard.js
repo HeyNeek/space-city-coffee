@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 
-function FavoriteShopCard({id, name, phone_number, address}){
+function FavoriteShopCard({afterDelete, id, name, phone_number, address}){
 
     function deleteFavorite(){
         fetch(`/favorite_shops/${id}`, {
@@ -12,8 +12,14 @@ function FavoriteShopCard({id, name, phone_number, address}){
           headers: {
             "Content-Type": "application/json",
           },
-        })
-        window.location.reload(false);
+        }).then((r) => {
+            if (r.ok) {
+              console.log(r)
+              afterDelete();
+            } else {
+              console.log(r)
+            }
+          });
     }
 
     return (

@@ -19,12 +19,18 @@ function Favorites({user}){
         });
       }, []);
 
+    function afterDelete(){
+        fetch("/favorite_shops")
+          .then((r) => r.json())
+          .then((favoriteShopData) => {setFavShops(favoriteShopData);});
+    }
+
     const filteredFavs = favShops.filter((favShop) => favShop.user_id === user.id)
 
     console.log(filteredFavs);
     
 
-    const displayFavorites = filteredFavs.map(fav => <FavoriteShopCard id={fav.id} name={fav.shop.name} phone_number={fav.shop.phone_number} address={fav.shop.address} />)
+    const displayFavorites = filteredFavs.map(fav => <FavoriteShopCard afterDelete={afterDelete} id={fav.id} name={fav.shop.name} phone_number={fav.shop.phone_number} address={fav.shop.address} />)
 
     setTimeout(console.log(favShops), 5000)
 

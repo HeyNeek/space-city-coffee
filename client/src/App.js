@@ -19,19 +19,14 @@ function App() {
   const [user, setUser] = useState(null);
   const history = useNavigate("");
 
+  //Auto-login
   useEffect(() => {
-    refresh()
-  }, []);
-
-  function refresh(){
-    fetch("/me").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => {console.log(user)
-          setUser(user)
-        }); 
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user));
       }
-    })
-  }
+    });
+  }, []);
 
   function logoutHandler() {
     fetch("/logout", { method: "DELETE" }).then((r) => {

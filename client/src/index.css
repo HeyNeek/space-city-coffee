@@ -135,10 +135,16 @@ body {
 
 .shopCards {
   cursor: pointer;
+  transition: transform .2s;
+}
+
+.shopCards:hover {
+  transform: scale(1.02); 
 }
 
 .shopCards:active {
-  border-color: green;
+  border-color: #FD7213;
+  border-width: thick;
 }
 
 #favoritesH1 {
@@ -167,6 +173,14 @@ body {
 #gmap_canvas {
   width: 100%;
   height: 400px;
+}
+
+#shopsColumn {
+  padding-top: 25px;
+  width: 100%;
+  height: 600px;
+  overflow-y:scroll;
+  overflow-x:hidden;
 }
 
 
