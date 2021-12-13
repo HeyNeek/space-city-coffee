@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import 'bootstrap/dist/css/bootstrap.css';
 
-function Shops({user}){
+function Shops({user, setSelectedShop}){
 
     const [shops, setShops] = useState([]);
     const [mapState, setMapState] = useState("https://maps.google.com/maps?q=Houston,%20TX&t=&z=11&ie=UTF8&iwloc=&output=embed");
@@ -23,7 +23,7 @@ function Shops({user}){
         });
       }, []);
 
-      const displayShops = shops.map(shop => <ShopCard setMapState={setMapState} shop_id={shop.id} location_link={shop.location_link} user={user} name={shop.name} phone_number={shop.phone_number} address={shop.address} />)
+      const displayShops = shops.map(shop => <ShopCard setSelectedShop={setSelectedShop} setMapState={setMapState} shop_id={shop.id} location_link={shop.location_link} user={user} name={shop.name} phone_number={shop.phone_number} address={shop.address} />)
 
     return (
         <div>

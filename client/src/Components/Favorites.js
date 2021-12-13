@@ -25,12 +25,16 @@ function Favorites({user}){
           .then((favoriteShopData) => {setFavShops(favoriteShopData);});
     }
 
-    const filteredFavs = favShops.filter((favShop) => favShop.user_id === user.id)
+    let filteredFavs = null;
 
-    console.log(filteredFavs);
-    
+    let displayFavorites = null;
 
-    const displayFavorites = filteredFavs.map(fav => <FavoriteShopCard afterDelete={afterDelete} id={fav.id} name={fav.shop.name} phone_number={fav.shop.phone_number} address={fav.shop.address} />)
+    if(!user){
+        console.log("No user");
+    }else{
+        filteredFavs = favShops.filter((favShop) => favShop.user_id === user.id);
+        displayFavorites = filteredFavs.map(fav => <FavoriteShopCard afterDelete={afterDelete} id={fav.id} name={fav.shop.name} phone_number={fav.shop.phone_number} address={fav.shop.address} />)
+    }
 
     setTimeout(console.log(favShops), 5000)
 

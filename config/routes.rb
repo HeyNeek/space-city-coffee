@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :comments
   resources :shops
   resources :favorite_shops
   resources :users

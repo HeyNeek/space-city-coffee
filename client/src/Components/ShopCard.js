@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import Alert from 'react-bootstrap/Alert'
+import Alert from 'react-bootstrap/Alert';
 import 'bootstrap/dist/css/bootstrap.css';
 
 function ShopCard({user, setMapState, location_link, shop_id, name, phone_number, address}){
@@ -37,6 +38,7 @@ function ShopCard({user, setMapState, location_link, shop_id, name, phone_number
                         <br/>
                         {address}
                     </Card.Text>
+                    <Link to={`/shopdetails/${shop_id}`}><Button className="showDetailsButton">Show Details</Button></Link>
                     {user ? <Button onClick={favoriteHandler}>Favorite</Button>: null}
                     {show ? <><br/><Alert variant="success" onClose={() => setShow(false)} dismissible><Alert.Heading>Added to favorites!</Alert.Heading></Alert></> : null}
                 </Card.Body>

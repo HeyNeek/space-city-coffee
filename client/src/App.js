@@ -6,6 +6,7 @@ import Shops from './Components/Shops';
 import Favorites from './Components/Favorites';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
+import ShopDetails from './Components/ShopDetails';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
@@ -63,6 +64,7 @@ function App() {
         <Route path="/favorites" element={<Favorites user={user}/>} />
         <Route path="/login" element={<Login setUser={setUser}/>} />
         <Route path="/signup" element={<Signup setUser={setUser}/>} />
+        <Route path="/shopdetails/:id" element={<ShopDetails user={user} />} />
       </Routes>
     </div>
   );
